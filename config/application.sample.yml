@@ -1,0 +1,13 @@
+# Add configuration values here, as shown below.
+
+POSTGRES_USER: postgres
+POSTGRES_PASSWORD: zaqwsx
+DATABASE_HOST: db
+
+#production:
+#  POSTGRES_USER: deploy
+#  POSTGRES_PASSWORD: qwerty
+#
+#staging:
+#  POSTGRES_USER: deploy
+#  POSTGRES_PASSWORD: qwerty
