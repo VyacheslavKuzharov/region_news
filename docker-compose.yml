@@ -2,7 +2,7 @@ version: '2'
 services:
   db:
     image: postgres
-    container_name: region_news_db
+    container_name: region_news_postgres
     ports:
       - '5433:5432'
     env_file:
@@ -11,7 +11,7 @@ services:
       - postgres-data:/var/lib/postgresql/data
   app:
     build: .
-    container_name: news_app
+    container_name: region_news_app
     volumes:
       - .:/region_news
     entrypoint: ["./stop-server.sh"]
