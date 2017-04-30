@@ -15,6 +15,7 @@
 
 .idea
 .DS_Store
+.ruby-gemset
 
 # Ignore application configuration
 /config/application.yml
