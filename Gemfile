@@ -56,3 +56,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # App configuration using ENV and a single YAML file
 gem 'figaro'
+
+gem 'mechanize'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
