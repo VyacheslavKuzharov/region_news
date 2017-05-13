@@ -1,25 +1,24 @@
 module Parser
-  class MyTaganrogCom < BaseScraper
+  class RostovLifeRu < BaseScraper
     I18n.locale = :ru
 
     def parse
       p "start #{self.class.to_s}"
-
-      count_pages = total_count_pages(site.url, paginate_container: 'div#main-wrapper div#main-content div.item-list ul.pager li.pager-last a')
+      count_pages = total_count_pages("#{site.url}nenovosti/posts", paginate_container: 'article.b-content div.b-content__main div.b-pagination a:last')
 
       is_break = false
       count_pages.times do |i|
-        links = get_page_links("#{site.url}/?page=#{i}", container_link: 'div#main-content div.block-content div.article h2.node-title a')
+        links = get_page_links("#{site.url}/nenovosti/posts?page=#{i+1}", container_link: 'article.b-content div.b-content__main article.n-grid__column a')
 
         links.each do |link|
           href = link.attr('href')
           data = get_news_data(
               "#{site.url}#{href}",
               site.url,
-              container_title: 'div#main-wrapper div#main-content h1#page-title',
-              container_image: 'div#main-content div.region-content div#block-system-main div.field-items p.rtecenter img',
-              container_date: 'div#main-content div.footer span.pubdate',
-              container_description: 'div#main-content div.region-content div#block-system-main div.field-items div.field-item p'
+              container_title: 'article.b-content h1.b-title',
+              container_image: 'div.n-post-plate__pic2 span.img',
+              container_date: 'article.b-content small.n-post-plate__panel__date',
+              container_description: 'article.b-content section.n-post div.n-post__text'
           )
           data[:news][:site_id] = site.id
           data[:news][:url] = "#{site.url[0...-1]}#{href}"
@@ -41,7 +40,7 @@ module Parser
 
 
     def site
-      @site ||= Site.find_by_name('mytaganrog.com')
+      @site ||= Site.find_by_name('rostovlife.ru')
     end
 
     def region
