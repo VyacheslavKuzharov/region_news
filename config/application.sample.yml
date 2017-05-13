@@ -1,13 +1,17 @@
 # Add configuration values here, as shown below.
 
-POSTGRES_USER: postgres
-POSTGRES_PASSWORD: zaqwsx
-DATABASE_HOST: db
+development:
+  POSTGRES_USER: user
+  POSTGRES_PASSWORD: qwerty
+  DATABASE_HOST: db_host
+  CLOUD_NAME: cloudinary_cloud_name
+  CLOUDINARY_API_KEY: cloudinary_api_key
+  CLOUDINARY_API_SECRET: cloudinary_api_secret
 
-#production:
-#  POSTGRES_USER: deploy
-#  POSTGRES_PASSWORD: qwerty
-#
-#staging:
-#  POSTGRES_USER: deploy
-#  POSTGRES_PASSWORD: qwerty
+production:
+  POSTGRES_USER: user
+  POSTGRES_PASSWORD: qwerty
+  DATABASE_HOST: db_host
+  CLOUD_NAME: cloudinary_cloud_name
+  CLOUDINARY_API_KEY: cloudinary_api_key
+  CLOUDINARY_API_SECRET: cloudinary_api_secret
