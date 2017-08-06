@@ -58,5 +58,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'figaro'
 
 gem 'mechanize'
+
 gem 'carrierwave'
 gem 'cloudinary'
+
+gem 'active_model_serializers'
+
+# gem 'swagger_ui_engine'
+gem 'swagger-docs'

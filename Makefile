@@ -12,7 +12,7 @@ rebuild: stop
 
 up:
 	@echo "*** Spinning up containers... ***"
-	docker-compose up
+	docker-compose up -d
 	@$(MAKE) --no-print-directory status
 
 stop:

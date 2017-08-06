@@ -13,5 +13,6 @@ module RegionNews
     # -- all .rb files in that directory are automatically loaded.
 
     I18n.available_locales = [:en, :ru]
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end
