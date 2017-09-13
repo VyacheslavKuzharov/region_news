@@ -43,55 +43,6 @@ module Parser
     end
 
 
-    # not best solution
-    def get_city_id(str)
-      match_region = str.match(/ростовская/i) || str.match(/ростовскую/i) || str.match(/ростовской/i) || str.match(/таганрогская/i) || str.match(/таганрогскую/i) || str.match(/таганрогской/i) || str.match(/таганрогом/i) || str.match(/ростовом/i)
-      match_data = (str.match(/ростов/i) || str.match(/таганрог/i))
-      return if match_region
-
-      City.find_by_name(match_data.to_s).id rescue nil
-    end
-
-    # really not best solution
-    def get_image_url(str, domain)
-      ary = str.split('/')
-      if ary[0] == ''
-        domain + str
-      else
-        str
-      end
-    end
-
-    def get_date(str)
-      ary = str.split
-      day = ary.delete_at(0)
-      month = ary.delete_at(1)
-
-      rus_day_index = rus_weekdays.index(day)
-      rus_month_index = rus_month.index(month)
-
-      ary.insert(0, eng_weekdays[rus_day_index]) if rus_day_index
-      ary.insert(2, eng_month[rus_month_index]) if rus_month_index
-      ary.join(' ').to_datetime
-    end
-
-    def rus_weekdays
-      %w(Понедельник Вторник Среда Четверг Пятница Суббота Воскресение)
-    end
-
-    def eng_weekdays
-      %w(Monday Tuesday Wensday Thusday Friday Saturday Sunday)
-    end
-
-    def rus_month
-      %w(января февраля марта апреля мая июня июля августа сентября октября ноября декабря)
-    end
-
-    def eng_month
-      %w(January February Mart April May June July August September October November December)
-    end
-
-
 
     private
 
